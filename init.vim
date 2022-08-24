@@ -1,7 +1,21 @@
-" Source the plugins
+ set number
+ set matchpairs+=<:>
+ set showmatch
+ set smartindent
+ set autoindent
+ set termguicolors
+ set encoding=utf8
+ set tabstop=4
+ set shiftwidth=4
+ set expandtab
+ set modifiable
+ set clipboard=unnamed
  call plug#begin()
  source ~/AppData/Local/nvim/dotfiles/plugins.vim
  call plug#end()
  colorscheme onedarkpro
+ set completeopt=menu,menuone,noselect
 
  luafile ~/AppData/Local/nvim/dotfiles/config/lua/lualine.lua
+ luafile ~/AppData/Local/nvim/dotfiles/config/lua/intelephense.lua
+ luafile ~/AppData/Local/nvim/dotfiles/config/lua/cmp.lua 
