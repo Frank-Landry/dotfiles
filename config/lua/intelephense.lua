@@ -1,37 +1,61 @@
-local lspconfig = require 'lspconfig'
-local configs = require 'lspconfig.configs'
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-if not configs.intelephense then
-  configs.intelephense = {
-    default_config = {
-      cmd = { 'intelephense', '--stdio' };
-      filetypes = { 'php' };
-      root_dir = function(fname)
-        return vim.loop.cwd()
-      end;
-      settings = {
-        intelephense = {
-          files = {
-            maxSize = 1000000;
-          };
-          environment = {
-            includePaths = {
-                "C:/Users/frank/Desktop/projects/"
-            }
-          }
-        }
-      }
-    }
-  }
-end
-
-lspconfig.intelephense.setup { 
-	capabilities = capabilities,
-	on_attach=function()
-	print('Intelephense has attached successfully.')
-	end,
+require("mason").setup()
+require("mason-lspconfig").setup()
+require("lspconfig").intelephense.setup {
+  on_attach = function(_, bufnr)
+    print ("Intelephense is here")
+  end
 }
+--local lspconfig = require 'lspconfig'
+--lspconfig.intelephense.setup {
+--  cmd = { "intelephense", "--stdio" },
+--  filetypes = {"php", "*.module", "*.inc", "*.theme"},
+--  root_dir = function (pattern)
+--    local cwd = vim.loop.cwd();
+--    local root = lspconfig.util.root_pattern("composer.json", ".git")(pattern);
+
+    --prefer cwd if root is descendant
+ --   return lspconfig.util.path.is_descendant(cwd, root) and cwd or root;
+--  end;
+--  root_dir = lspconfig.util.root_pattern({ "composer.json", ".git" }),
+ -- settings = 
+--  { 
+--    intelephense = {
+--      includePaths = {
+--        '**/web/*',
+--        '/Users/franklandry/htdocs/portal/dmv_tax_estimator/',
+--      }
+--    } 
+--  },
+--  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+--  on_attach = function(_, bufnr)
+--        flags = {
+--          debounce_text_changes = 150,
+--        }
+--        vim.keymap.set("n", "K", vim.lsp.buf.hover, {
+--            buffer = 0
+--        })
+--        vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
+--            buffer = 0
+--        })
+--        vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {
+--            buffer = 0
+--        })
+--        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {
+ --           buffer = 0
+--        })
+--        vim.keymap.set("n", "gn", vim.diagnostic.goto_next, {
+--            buffer = 0
+--        })
+--        vim.keymap.set("n", "gp", vim.diagnostic.goto_prev, {
+--            buffer = 0
+--        })
+--        vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, {
+--            buffer = 0
+--        })
+--        vim.keymap.set("n", "T", "<cmd>Telescope<CR>", {})
+--        vim.keymap.set("n", "<C-a>", vim.lsp.buf.code_action, {})
+ --       print('Intelephense has attached successfully.')
+--   end
+--
+--}
 

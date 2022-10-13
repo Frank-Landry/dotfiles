@@ -1,21 +1,19 @@
  set number
- set matchpairs+=<:>
  set showmatch
- set smartindent
- set autoindent
- set termguicolors
- set encoding=utf8
- set tabstop=4
- set shiftwidth=4
+ set tabstop=2
+ set shiftwidth=2
  set expandtab
- set modifiable
- set clipboard=unnamed
- call plug#begin()
- source ~/AppData/Local/nvim/dotfiles/plugins.vim
- call plug#end()
- colorscheme onedarkpro
- set completeopt=menu,menuone,noselect
 
- luafile ~/AppData/Local/nvim/dotfiles/config/lua/lualine.lua
- luafile ~/AppData/Local/nvim/dotfiles/config/lua/intelephense.lua
- luafile ~/AppData/Local/nvim/dotfiles/config/lua/cmp.lua 
+ call plug#begin()
+ source ~/.config/nvim/dotfiles/plugins.vim
+ call plug#end()
+ set completeopt=noinsert,menuone,noselect
+ 
+ luafile ~/.config/nvim/dotfiles/config/lua/ntreesitter.lua
+ luafile ~/.config/nvim/dotfiles/config/lua/lualine.lua
+ luafile ~/.config/nvim/dotfiles/config/lua/cmp_grump.lua
+ "luafile ~/.config/nvim/dotfiles/config/lua/intelephense.lua
+ "luafile ~/.config/nvim/dotfiles/config/lua/phpactor.lua
+
+ "autocmd BufEnter * call ncm2#enable_for_buffer()
+
