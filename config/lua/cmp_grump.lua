@@ -4,7 +4,16 @@ local nvim_lsp = require("lspconfig")
 local cmp = require("cmp")
 local luasnip = require('luasnip')
 local lspkind = require('lspkind')
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 local builtin = require('telescope.builtin')
 local util = require('lspconfig.util')
 --require("cmp_nvim_lsp").setup()
@@ -43,7 +52,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  print('Current Client: '..client.name)
+  print('MAKE SURE TO COMMENT YOUR METHODS TO GET -> Completion WORKING')
 end
 
 cmp.setup({
