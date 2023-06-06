@@ -7,6 +7,8 @@ Plug 'tpope/vim-unimpaired'
 " Vim Commentary
 Plug 'tpope/vim-commentary'
 
+" Comments
+Plug 'numToStr/Comment.nvim'
 " Emmet
 Plug 'mattn/emmet-vim'
 
@@ -19,7 +21,7 @@ Plug 'nvim-telescope/telescope-ui-select.nvim'
 Plug 'voldikss/vim-floaterm'
 
 " Web Dev Icons
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-tree/nvim-web-devicons'
 
 " Lualine
 Plug 'nvim-lualine/lualine.nvim'
@@ -64,7 +66,14 @@ Plug 'tjdevries/colorbuddy.nvim'
 
 Plug 'phpactor/phpactor'
 Plug 'artempyanykh/marksman'
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'theHamsta/nvim-dap-virtual-text'
+Plug 'nvim-telescope/telescope-dap.nvim'
 
+Plug 'rest-nvim/rest.nvim'
+
+Plug 'nvimdev/dashboard-nvim'
 " Config: Floaterm
 let g:floaterm_width=0.9
 let g:floaterm_height=0.9
