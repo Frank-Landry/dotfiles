@@ -1,10 +1,23 @@
-require("mason").setup()
-require("mason-lspconfig").setup()
-require("lspconfig").intelephense.setup {
-  on_attach = function(_, bufnr)
-    print ("Intelephense is here")
-  end
+local util = require("lspconfig.util")
+local nvim_lsp = require("lspconfig")
+-- PHP
+nvim_lsp.intelephense.setup {
+    cmd = { "intelephense", "--stdio" },
+    filetypes = { "php", "module", "phtml", "install" },
+    root_dir = function(pattern)
+      local cwd = vim.loop.cwd()
+      local root = util.root_pattern('index.php')(pattern)
+      -- prefer cwd if root is a descendant
+      return util.path.is_descendant(cwd, root) and cwd or root 
+    end,
+    documentRoot = {"../../../core/", "index.php", "lib/", "includes/", "ini.php"},
+    includePaths = {
+      "/vendor/*",
+      "../../../web/core/"
+    },
+    capabilities = capabilities
 }
+
 --local lspconfig = require 'lspconfig'
 --lspconfig.intelephense.setup {
 --  cmd = { "intelephense", "--stdio" },

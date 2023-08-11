@@ -83,7 +83,7 @@ local on_attach = function(client, bufnr)
   -- TELESCOPE KEYBINDS
   --buf_set_keymap('n', '<space>gf', builtin.git_files, opts)
 
-  print('MAKE SURE TO COMMENT YOUR METHODS TO GET -> Completion WORKING')
+--  print('MAKE SURE TO COMMENT YOUR METHODS TO GET -> Completion WORKING')
 end
 
 cmp.setup({
@@ -144,22 +144,22 @@ nvim_lsp.marksman.setup {
 }
 
 -- PHP
-nvim_lsp.intelephense.setup {
-    cmd = { "intelephense", "--stdio" },
-    filetypes = { "php", "module", "phtml", "install" },
-    root_dir = function(pattern)
-      local cwd = vim.loop.cwd()
-      local root = util.root_pattern('index.php')(pattern)
-      -- prefer cwd if root is a descendant
-      return util.path.is_descendant(cwd, root) and cwd or root 
-    end,
-    documentRoot = "../../../core/",
-    includePaths = {
-      "/vendor/*",
-      "../../../web/core/"
-    },
-    capabilities = capabilities
-}
+--nvim_lsp.intelephense.setup {
+--    cmd = { "intelephense", "--stdio" },
+--    filetypes = { "php", "module", "phtml", "install" },
+--    root_dir = function(pattern)
+--      local cwd = vim.loop.cwd()
+--      local root = util.root_pattern('index.php')(pattern)
+--      -- prefer cwd if root is a descendant
+--      return util.path.is_descendant(cwd, root) and cwd or root 
+--    end,
+--    documentRoot = {"../../../core/", "index.php"},
+--    includePaths = {
+--      "/vendor/*",
+--      "../../../web/core/"
+--    },
+--    capabilities = capabilities
+--}
 
 
 

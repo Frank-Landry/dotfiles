@@ -9,9 +9,11 @@
  source ~/.config/nvim/dotfiles/plugins.vim
  call plug#end()
  set completeopt=noinsert,menuone,noselect
- 
+ " lua file inclusion from config/lua 
  luafile ~/.config/nvim/dotfiles/config/lua/ntreesitter.lua
  luafile ~/.config/nvim/dotfiles/config/lua/lualine.lua
+ luafile ~/.config/nvim/dotfiles/config/lua/emmet.lua
+ luafile ~/.config/nvim/dotfiles/config/lua/intelephense.lua
  luafile ~/.config/nvim/dotfiles/config/lua/cmp.lua
  luafile ~/.config/nvim/dotfiles/config/lua/dap.lua
  luafile ~/.config/nvim/dotfiles/config/lua/comment.lua
