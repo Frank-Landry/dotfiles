@@ -19,6 +19,7 @@
  luafile ~/.config/nvim/dotfiles/config/lua/comment.lua
  luafile ~/.config/nvim/dotfiles/config/lua/dashboard.lua
  luafile ~/.config/nvim/dotfiles/config/lua/tslsp.lua
+ luafile ~/.config/nvim/dotfiles/config/lua/todo-comments.lua
  source ~/.config/nvim/dotfiles/mappings.vim
  "luafile ~/.config/nvim/dotfiles/config/lua/intelephense.lua
  "luafile ~/.config/nvim/dotfiles/config/lua/phpactor.lua

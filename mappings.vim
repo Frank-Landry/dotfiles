@@ -26,3 +26,8 @@ nnoremap ro <cmd>lua require'dap'.repl.open()<cr>
 nnoremap <leader>duo <cmd>lua require'dapui'.open()<cr>
 nnoremap <leader>duc <cmd>lua require'dapui'.close()<cr>
 nnoremap <leader>dt <cmd>lua require'dapui'.toggle()<cr>
+" clipboard
+nnoremap <leader>y "+y
+nnoremap <leader>P "+p
+" todo mappings
+nnoremap <leader>tdl <cmd>:TodoLocList <cr>

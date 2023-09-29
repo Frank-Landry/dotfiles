@@ -1,5 +1,8 @@
 "Git-Blame
 Plug 'f-person/git-blame.nvim'
+" Todo comment highlighting
+Plug 'folke/todo-comments.nvim'
+
 " Auto pairs for '(' '[' '{'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-unimpaired'
