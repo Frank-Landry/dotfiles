@@ -36,7 +36,8 @@ return {
           "intelephense",
           "bashls",
           "html",
-          "emmet_ls"
+          "emmet_ls",
+          "luau_ls"
         }
       }
     end
@@ -51,13 +52,13 @@ return {
             local util = require 'lspconfig.util'
             local cwd = vim.loop.cwd()
             local root = util.path("composer.json", ".git", "index.php")(pattern)
-
             return util.path.is_descendant(cwd, root) and cwd or root
           end,
         },
         bashls = {},
         html = {},
         emmet_ls = {},
+        luau_ls = {}
       },
     },
     config = function()
@@ -113,6 +114,12 @@ return {
           end)
         end
       })
+      lspconfig.luau_ls.setup({
+        filetypes = { "lua", "rblxlx" },
+        on_attach = function ()
+          print('LUAU LSP Attached')
+        end
+      })
     end
   },
   {
@@ -147,6 +154,7 @@ return {
       cmdline = {
         enabled = true,
         keymap = { preset = 'inherit' },
+        completion = { menu = { auto_show = true }},
       },
 
       appearance = {
