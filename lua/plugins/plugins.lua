@@ -37,7 +37,8 @@ return {
           "bashls",
           "html",
           "emmet_ls",
-          "luau_ls"
+          "perlnavigator",
+          "ts_ls"
         }
       }
     end
@@ -58,44 +59,44 @@ return {
         bashls = {},
         html = {},
         emmet_ls = {},
-        luau_ls = {}
+        ts_ls = {},
+        perlnavigator = {}
       },
     },
     config = function()
-      local lspconfig = require('lspconfig')
-      lspconfig.lua_ls.setup({
+      vim.lsp.config('lua_ls', {
         on_attach = function()
           print('Lua LS Attached')
         end
       })
-      lspconfig.intelephense.setup({
+      vim.lsp.config('intelephense', {
         on_attach = function()
           vim.keymap.set("n", "<leader>ft", function() vim.lsp.buf.format() end)
           print('Intelephense Attached')
         end
       })
-      lspconfig.yamlls.setup({
+      vim.lsp.config('yaml_ls', {
         on_attach = function()
           print('YAML Language Server Attached')
         end
       })
-      lspconfig.perlnavigator.setup({
+      vim.lsp.config('perlnavigator', {
         on_attach = function()
           print('Perl Navigator Server Attached')
         end
       })
-      lspconfig.bashls.setup({
+      vim.lsp.config('bashls', {
         on_attach = function()
           print('BashLS Server Attached')
         end
       })
-      lspconfig.emmet_ls.setup({
+      vim.lsp.config('emmet_ls', {
         filetypes = { "css", "html", "less", "sass", "scss", "pt" },
         on_attach = function()
           print('Emmet LS Attached')
         end
       })
-      lspconfig.ts_ls.setup({
+      vim.lsp.config('ts_ls', {
         filetypes = {
           "javascript", "ts"
         },
@@ -106,18 +107,12 @@ return {
           end)
         end
       })
-      lspconfig.html.setup({
+      vim.lsp.config('html', { 
         filetypes = { "html", "twig.html", "pt" },
         on_attach = function()
           vim.keymap.set("n", "<leader>ft", function()
             vim.lsp.buf.format()
           end)
-        end
-      })
-      lspconfig.luau_ls.setup({
-        filetypes = { "lua", "rblxlx" },
-        on_attach = function ()
-          print('LUAU LSP Attached')
         end
       })
     end
@@ -153,7 +148,7 @@ return {
 
       cmdline = {
         enabled = true,
-        keymap = { preset = 'inherit' },
+        keymap = { preset = 'cmdline' },
         completion = { menu = { auto_show = true }},
       },
 
